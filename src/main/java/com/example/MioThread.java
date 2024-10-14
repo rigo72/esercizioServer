@@ -1,21 +1,33 @@
 package com.example;
 
-import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+public class MioThread extends Thread{
+Socket s;
+    public MioThread(Socket s){
+        this.s = s;
+    }
 
-public class Main {
-    public static void main(String[] args) throws IOException {
-        ServerSocket ss1 = new ServerSocket(6363);
-        do{
-            Socket s1 = ss1.accept();
-            MioThread t = new MioThread(s1);
-            t.start();
-        }while(true);
-        /*
+    public void run(){
         ServerSocket ss = new ServerSocket(6363);
         Socket mySocket = ss.accept();
         System.out.println("Qualcuno si è collegato");
+        switch (oppzione) {
+            case 1:
+                
+                break;
+            case 2:
+
+                break;
+            case 3:
+            
+                break;
+            default:
+                break;
+        }
         BufferedReader in = new BufferedReader(new InputStreamReader(mySocket.getInputStream()));
         DataOutputStream out = new DataOutputStream(mySocket.getOutputStream());
         String stringRecive = in.readLine();
@@ -23,7 +35,6 @@ public class Main {
         String stringUppercase = stringRecive.toUpperCase();
         out.writeBytes(stringUppercase + "\n");
         mySocket.close();
-        ss.close();
-        */
+        s1.close();
     }
 }
